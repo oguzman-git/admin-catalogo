@@ -8,7 +8,7 @@
 ### En la carpeta services se definen todos los métodos para interactuar con la base de datos: obtener, insertar, actualizar y borrar, y los archivos marca.component.ts y producto.component.ts se definen los métodos del formulario (subscribe de los arreglos, onSubmit y reiniciar formulario), mientras que en lista-productos.component.ts y lista-marcas.component.ts se encuentran métodos para tener scope de los arreglos, rellenar información del formulario y eliminar un producto o marca respectivamente de la lista creada. 
 
 
-### Todas las validaciones  de los datos se realizaron desde los archivos html de las listas correspondientes (producto.component.html y marca.component.html) usando las clases de validación .valid y .dirty principalmente. 
+### Todas las validaciones  de los datos se realizaron desde los archivos html de los formularios (producto.component.html y marca.component.html) usando las clases de validación .valid y .dirty principalmente. 
 
 
 
