@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="card-body">
+        <h6 class="text-center">
+            Lista de productos
+        </h6>
+        <table class="table table-sm table-hover">
+            <tbody>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Talla</th>
+                    <th>Marca</th>
+                    <th>Observaciones</th>
+                    <th>Cantidad</th>
+                    <th>Fecha de Embarque</th>
+                    <th>Editar/Eliminar</th>
+                </tr>
+                <tr *ngFor="let producto of listaProductos">
+                    <td>{{producto.nombre}}</td>
+                    <td>{{producto.talla}}</td>
+                    <td>{{producto.marca}} </td>
+                    <td>{{producto.observaciones}}</td>
+                    <td>{{producto.cantidadInventario}}</td>
+                    <td>{{producto.fechaEmbarque}}</td>
+                    <td>
+                        <a class="btn btn-secondary text-white" (click)="editarProducto(producto)">
+                            <i class="far fa-edit"></i>
+                        </a>
+                        <a class="btn btn-danger text-white" (click)="eliminarProductoDeLista(producto.$key)">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

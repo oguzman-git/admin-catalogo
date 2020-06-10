@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="card-body">
+        <h6 class="text-center">
+            Lista de marcas
+        </h6>
+        <table class="table table-sm table-hover">
+            <tbody>
+                <tr>
+                    <th>Referencia</th>
+                    <th>Marca</th>
+                    <th>Editar/Eliminar</th>
+                </tr>
+                <tr *ngFor="let marca of listaMarcas">
+                    <td>{{marca.$key}}</td>
+                    <!--Referencia alfanumérica generada por la base de datos-->
+                    <td>{{marca.nombre}}</td>
+                    <td>
+                        <a class="btn btn-secondary text-white" (click)="editarMarca(marca)">
+                            <i class="far fa-edit"></i>
+                        </a>
+                        <a class="btn btn-danger text-white" (click)="eliminarMarcaDeLista(marca.$key)">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

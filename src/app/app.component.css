@@ -1,0 +1,8 @@
+.active {
+    background-color: rgba(180, 175, 94, 0.781);
+}
+
+li:hover {
+    background-color: rgba(180, 176, 94, 0.233);
+    cursor: pointer;
+}
