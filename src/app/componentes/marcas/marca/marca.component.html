@@ -1,0 +1,25 @@
+<div class="card">
+    <div class="card-body">
+        <form #marcaForm="ngForm" (ngSubmit)="onSubmit(marcaForm)">
+            <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="marcaService.selectMarca.$key">
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="nombre" #marcaControl="ngModel" [(ngModel)]="marcaService.selectMarca.nombre" placeholder="Nombre" required>
+            </div>
+
+            <div class="alert alert-danger" *ngIf="marcaControl.touched && !marcaControl.valid">
+                <div *ngIf="marcaControl.errors.required">Ingresa un nombre de marca</div>
+            </div>
+
+
+            <div class="form-group">
+                <button *ngIf="marcaControl.dirty" [disabled]="!marcaControl.valid" class="btn btn-primary" type="submit">
+                    Guardar
+                </button>
+                <button *ngIf="!marcaControl.dirty" [disabled]="!marcaControl.valid" class="btn btn-primary" type="submit" (click)=reiniciarFormulario2(marcaForm)>
+                    Agregar marca 
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

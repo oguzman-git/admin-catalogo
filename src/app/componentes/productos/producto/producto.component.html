@@ -1,0 +1,77 @@
+<div class="card">
+    <div class="card-body">
+        <form #productoForm="ngForm" (ngSubmit)="onSubmit(productoForm)">
+            <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="productService.selectProducto.$key" required>
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="nombre" #nombreControl="ngModel" [(ngModel)]="productService.selectProducto.nombre" placeholder="Nombre" required>
+            </div>
+
+            <div class="alert alert-danger" *ngIf="nombreControl.touched && !nombreControl.valid">
+                <div *ngIf="nombreControl.errors.required">Nombre de producto es requerido</div>
+            </div>
+
+            <div class="form-group">
+                <select name="talla" #tallaControl="ngModel" class="form-control" [(ngModel)]="productService.selectProducto.talla" required>
+                    <option value="" [disabled]="true" selected>Escoge una talla</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                </select>
+            </div>
+
+            <div class="alert alert-danger" *ngIf="tallaControl.touched && !tallaControl.valid">
+                <div *ngIf="tallaControl.errors.required">Talla requerida</div>
+            </div>
+
+            <div class="form-group">
+                <select name="marca" #marcaControl="ngModel" class="form-control" [(ngModel)]="productService.selectProducto.marca" required>
+                    <option value="" [disabled]="true" selected>Escoge una Marca</option>
+                    <option value="{{marca.nombre}}" *ngFor="let marca of listaMarcas">{{marca.nombre}}</option>
+                </select>
+            </div>
+
+            <div class="alert alert-danger" *ngIf="marcaControl.touched && !marcaControl.valid">
+                <div *ngIf="marcaControl.errors.required">Marca requerida</div>
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="observaciones" #observacionesControl="ngModel" [(ngModel)]="productService.selectProducto.observaciones" placeholder="Observaciones" required>
+            </div>
+            <div class="alert alert-danger" *ngIf="observacionesControl.touched && !observacionesControl.valid">
+                <div *ngIf="observacionesControl.errors.required">Observaciones requeridas </div>
+            </div>
+
+
+            <div class="form-group">
+                <input type="number" class="form-control" name="cantidadInventario" #inventarioControl="ngModel" [(ngModel)]="productService.selectProducto.cantidadInventario" placeholder="Cantidad en inventario" min="0" required>
+            </div>
+            <div class="alert alert-danger" *ngIf="inventarioControl.touched && !inventarioControl.valid">
+                <div *ngIf="inventarioControl.errors.required">Cantidad de inventario requerida</div>
+            </div>
+
+            <div class="form-group">
+                <input type="date" class="form-control" name="fechaEmbarque" #fechaControl="ngModel" [(ngModel)]="productService.selectProducto.fechaEmbarque" placeholder="Fecha de embarque" required>
+            </div>
+
+            <div class="alert alert-danger" *ngIf="fechaControl.touched && !fechaControl.valid">
+                <div *ngIf="fechaControl.errors.required">Fecha requerida</div>
+            </div>
+
+
+            <div class="form-group">
+                <!--Habilitar el boton si todos los campos son válidos y si alguno de los datos se modifico-->
+                <button *ngIf="(nombreControl.dirty || tallaControl.dirty || marcaControl.dirty || 
+                observacionesControl.dirty || inventarioControl.dirty || fechaControl.dirty)" [disabled]="!(nombreControl.valid && tallaControl.valid && marcaControl.valid && 
+                observacionesControl.valid && inventarioControl.valid && fechaControl.valid)" class="btn btn-primary" type="submit">
+                    Guardar 
+                </button>
+                <button *ngIf="!(nombreControl.dirty || tallaControl.dirty || marcaControl.dirty || 
+                observacionesControl.dirty || inventarioControl.dirty || fechaControl.dirty)" [disabled]="!(nombreControl.valid && tallaControl.valid && marcaControl.valid && 
+                observacionesControl.valid && inventarioControl.valid && fechaControl.valid)" class="btn btn-primary" type="submit" (click)="reiniciarFormulario2(productoForm)">
+                    Agregar producto
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
