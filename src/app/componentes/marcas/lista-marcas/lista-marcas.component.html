@@ -10,7 +10,7 @@
                     <th>Marca</th>
                     <th>Editar/Eliminar</th>
                 </tr>
-                <tr *ngFor="let marca of listaMarcas">
+                <tr *ngFor="let marca of listaMarcas" [class.table-active]="marca == marcaService.selectMarca">
                     <td>{{marca.$key}}</td>
                     <!--Referencia alfanumérica generada por la base de datos-->
                     <td>{{marca.nombre}}</td>

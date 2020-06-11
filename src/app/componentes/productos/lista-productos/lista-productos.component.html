@@ -14,7 +14,7 @@
                     <th>Fecha de Embarque</th>
                     <th>Editar/Eliminar</th>
                 </tr>
-                <tr *ngFor="let producto of listaProductos">
+                <tr *ngFor="let producto of listaProductos" [class.table-active]="producto == productService.selectProducto">
                     <td>{{producto.nombre}}</td>
                     <td>{{producto.talla}}</td>
                     <td>{{producto.marca}} </td>

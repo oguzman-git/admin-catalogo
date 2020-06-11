@@ -69,7 +69,8 @@
                 <button *ngIf="!(nombreControl.dirty || tallaControl.dirty || marcaControl.dirty || 
                 observacionesControl.dirty || inventarioControl.dirty || fechaControl.dirty)" [disabled]="!(nombreControl.valid && tallaControl.valid && marcaControl.valid && 
                 observacionesControl.valid && inventarioControl.valid && fechaControl.valid)" class="btn btn-primary" type="submit" (click)="reiniciarFormulario2(productoForm)">
-                    Agregar producto
+                <span *ngIf="!productoForm.valid">Agregar producto </span> 
+                <span *ngIf="productoForm.valid">Guardar sin cambios </span> 
                 </button>
             </div>
         </form>

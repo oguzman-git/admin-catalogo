@@ -48,7 +48,7 @@ export class ProductoComponent implements OnInit {
           }
           this.reiniciarFormulario(productoForm);
         
-      
+          alert("El producto ha sido guardado");
   }
 
   reiniciarFormulario(productoForm?: NgForm) {

@@ -29,6 +29,7 @@ export class MarcaComponent implements OnInit {
         }
         this.reiniciarFormulario(marcaForm);
        
+        alert("La marca ha sido guardada");
   }
 
   reiniciarFormulario(marcaForm?: NgForm) {
@@ -37,13 +38,12 @@ export class MarcaComponent implements OnInit {
       marcaForm.reset();
       this.marcaService.selectMarca = new Marca();    
     
-
   }
 
   reiniciarFormulario2(marcaForm?: NgForm) {
 
     if(marcaForm != null) 
-    this.marcaService.selectMarca = new Marca();             
+    this.marcaService.selectMarca = new Marca();           
     
   }
 

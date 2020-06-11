@@ -12,9 +12,10 @@ import { Marca } from 'src/app/modelos/marca';
 export class ListaMarcasComponent implements OnInit {
 
   listaMarcas: Marca[];
+  marcaActual: Marca = this.marcaService.selectMarca;
 
   constructor(
-    private marcaService: MarcaService
+    public marcaService: MarcaService
   ) { }
 
   ngOnInit() {

@@ -17,7 +17,8 @@
                     Guardar
                 </button>
                 <button *ngIf="!marcaControl.dirty" [disabled]="!marcaControl.valid" class="btn btn-primary" type="submit" (click)=reiniciarFormulario2(marcaForm)>
-                    Agregar marca 
+                    <span *ngIf="!marcaControl.valid">Agregar marca </span> 
+                    <span *ngIf="marcaControl.valid">Guardar sin cambios </span>                    
                 </button>
             </div>
         </form>
